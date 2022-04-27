@@ -18,9 +18,19 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
 
+  say-tello:
+    docker: 
+      - image: cimg/base:table
+
+    steps:
+      name: "Say Tello"
+      command: "echo Hello, Tello"
+
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - say-tello
