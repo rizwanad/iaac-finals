@@ -20,7 +20,7 @@ jobs:
 
   say-tello:
     docker: 
-      - image: cimg/base:table
+      - image: cimg/base:stable
 
     steps:
       - checkout
