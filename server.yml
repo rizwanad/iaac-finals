@@ -61,7 +61,8 @@ Resources:
           sudo apt-get update -y
           sudo apt-get install apache2 -y
           sudo systemctl start apache2.service 
-          echo "Udacity Demo Web Server Up and Running!" > index.html
+          cd /var/www/html
+          echo "it works! Udagram, Udacity" > index.html
       BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
           Ebs:
