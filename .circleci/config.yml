@@ -7,7 +7,7 @@ version: 2.1
 jobs:
   save_hello_world_output:
     docker: 
-      image: cimg/base:stable
+      - image: cimg/base:stable
 
     steps:
       - checkout
@@ -22,7 +22,7 @@ jobs:
 
   print_hello_world_output:
     docker: 
-      image: cimg/base:stable
+      - image: cimg/base:stable
 
     steps:
       - checkout
@@ -31,9 +31,11 @@ jobs:
       - run:
           name: 'Print'
           command: "cat /tmp/dir/output.txt"
-    
+  
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
-    - save_hello_world_output
+    jobs:
+      - save_hello_world_output
+
