@@ -13,10 +13,10 @@ jobs:
       - checkout
       - run:
           name: 'Persist file to workspace'
-          command: "echo hello world > output.txt"
+          command: "echo hello world > workspace/output.txt"
 
       - persist_to_workspace:
-          root: /tmp
+          root: workspace
           paths:
             - output.txt
 
