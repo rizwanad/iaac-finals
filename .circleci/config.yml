@@ -11,9 +11,8 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: 'Persist file to workspace'
-          command: "echo hello world > workspace/output.txt"
+      - run: mkdir -p workspace
+      - run: echo "hello world" > workspace/output.txt
 
       - persist_to_workspace:
           root: workspace
