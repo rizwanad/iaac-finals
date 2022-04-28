@@ -26,10 +26,10 @@ jobs:
     steps:
       - checkout
       - attach_workspace: 
-          at: .
+          at: /tmp/workspace
       - run:
           name: 'Print'
-          command: "cat /tmp/dir/output.txt"
+          command: "cat /tmp/workspace/output.txt"
   
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -37,4 +37,8 @@ workflows:
   say-hello-workflow:
     jobs:
       - save_hello_world_output
+      - print_hello_world_output
+          requires:
+            - save_hello_world_output
+
 
